@@ -1,0 +1,68 @@
+/* Reset default spacing and layout box */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: 'Times New Roman', serif;
+  padding: 30px 40px 40px 40px; /* top padding reduced from 40px to 30px */
+  color: #000;
+}
+
+.section {
+  max-width: 900px;
+  margin: 20px auto 0 auto; /* 20px top margin to section only */
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 26px;
+  color: #496fa4;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+a {
+  color: #1a4fa3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.centered-subheading {
+  text-align: center;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  color: #333;
+}
