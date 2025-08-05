@@ -105,29 +105,40 @@
       .content {
         padding: 15px;
       }
+      body.protected #page-content {
+    display: none;
+  }
     }
   </style>
 </head>
 <body>
-  <script>
+ 
+
+
+<!-- Password security -->
+<script>
   const correctPassword = "teach2025";
 
   function checkPassword() {
-    // Check sessionStorage to see if already validated
-    if (sessionStorage.getItem("accessGranted") === "true") return;
+    if (sessionStorage.getItem("accessGranted") === "true") {
+      document.body.classList.remove("protected");
+      return;
+    }
 
-    // Ask for password
     const entered = prompt("Enter password to access this page:");
-
     if (entered === correctPassword) {
       sessionStorage.setItem("accessGranted", "true");
+      document.body.classList.remove("protected");
     } else {
       document.body.innerHTML = "<h2 style='text-align:center; margin-top: 20%; font-family: Times New Roman;'>Access Denied</h2>";
     }
   }
 
-  // Run password check on page load
-  window.onload = checkPassword;
+  // Set body to protected before anything loads
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.add("protected");
+    checkPassword();
+  });
 </script>
 
   <div class="container">
@@ -139,8 +150,8 @@
           <li class="dropdown" onclick="toggleMenu(this)">
            <a href="Preclinical Policies.html"> Preclinical Policies</a> <span class="plus">+</span>
             <ul class="submenu">
-              <li><a href="Policies.html" target="content-frame">Policies and Procedures</a></li>
-              <li><a href="Grading Policy.html"target="content-frame"> Grading Policy</a></li>
+              <li><a href="Policies.html">Policies and Procedures</a></li>
+              <li><a href="Grading Policy.html"> Grading Policy</a></li>
               <li><a href="Preclinical Dress Code.html">Preclinical Dress Code</a></li>
               <li><a href="General Field Policies.html"> General Field Policies</a></li>
             </ul>
@@ -149,8 +160,8 @@
   <li class="dropdown" onclick="toggleMenu(this)">
            <a href="professionalism.html"> Professionalism </a> <span class="plus">+</span>
             <ul class="submenu">
-    <li><a href="licensure.html" target="content-frame">Licensure Code of Professional Conduct for Ohio Educators</a></li>
-    <li><a href="ode.html" target="content-frame">ODE ABCconduct Tip Sheets</a></li>
+    <li><a href="licensure.html" >Licensure Code of Professional Conduct for Ohio Educators</a></li>
+    <li><a href="ode.html" >ODE ABCconduct Tip Sheets</a></li>
   </ul>
 </li>
   
